@@ -9,7 +9,7 @@ using GraphTrial.API.Common;
 
 namespace GraphTrial.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/{teamId}")]
     [ApiController]
     public class TeamsController : ControllerBase
     {
@@ -30,8 +30,7 @@ namespace GraphTrial.API.Controllers
         public async Task<ResponseResult> CreateTeam()
         {
             try
-            {
-                
+            {                
                 var requestBody = new Team
                 {
                     DisplayName = "My Sample Team",
@@ -61,8 +60,8 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <param name="teamMemberId"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Route("AddTeamMember/{teamId}/{teamMemberId}")]
+        [HttpGet]
+        [Route("AddTeamMember/{teamMemberId}")]
         public async Task<ResponseResult> AddTeamMember(string teamId, string teamMemberId)
         {
             try
@@ -101,7 +100,7 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetTeam/{teamId}")]
+        [Route("GetTeam")]
         public async Task<ResponseResult> GetTeam(string teamId)
         {
             try
@@ -125,7 +124,7 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetTeamMembers/{teamId}")]
+        [Route("GetTeamMembers")]
         public async Task<ResponseResult> GetTeamMembers(string teamId)
         {
             try
@@ -145,36 +144,12 @@ namespace GraphTrial.API.Controllers
 
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="teamId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("GetTeamMember/{teamId}/{conversationMemberId}")]
-        public async Task<ResponseResult> GetTeamMembers(string teamId, string conversationMemberId)
-        {
-            try
-            {
-                ConversationMember teamMembers = await graphClient.Teams[teamId].Members[conversationMemberId].GetAsync();
-                result.Data = teamMembers;
-                result.Result = ResponseFlag.Success;
-            }
-            catch (Exception ex)
-            {
-                result.Message = ex.Message;
-                result.Result = ResponseFlag.Error;
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Deletes a team
         /// </summary>
         /// <param name="teamId"></param>
         /// <returns></returns>
-        [HttpDelete]
-        [Route("DeleteTeam/{teamId}")]
+        [HttpGet]
+        [Route("DeleteTeam")]
         public async Task<ResponseResult> DeleteTeam(string teamId)
         {
             try
@@ -198,13 +173,13 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <param name="conversationTeamMemberId"></param>
         /// <returns></returns>
-        [HttpDelete]
-        [Route("RemoveTeamMember/{teamId}/{conversationTeamMemberId}")]
+        [HttpGet]
+        [Route("RemoveTeamMember/{conversationTeamMemberId}")]
         public async Task<ResponseResult> RemoveTeamMember(string teamId, string conversationTeamMemberId)
         {
             try
             {
-                                await graphClient.Teams[teamId].Members[conversationTeamMemberId].DeleteAsync(); // returns void
+                await graphClient.Teams[teamId].Members[conversationTeamMemberId].DeleteAsync(); // returns void
                 result.Data = "Removed team member successfully";
                 result.Result = ResponseFlag.Success;
             }
@@ -216,83 +191,5 @@ namespace GraphTrial.API.Controllers
 
             return result;
         }
-
-        /// <summary>
-        /// Updates team details
-        /// </summary>
-        /// <param name="teamId"></param>
-        /// <returns></returns>
-        [HttpPatch]
-        [Route("UpdateTeam/{teamId}")]
-        public async Task<ResponseResult> UpdateTeam(string teamId)
-        {
-            try
-            {
-                var requestBody = new Team
-                {
-                    MemberSettings = new TeamMemberSettings
-                    {
-                        AllowCreateUpdateChannels = true,
-                    },
-                    MessagingSettings = new TeamMessagingSettings
-                    {
-                        AllowUserEditMessages = true,
-                        AllowUserDeleteMessages = true,
-                    },
-                    FunSettings = new TeamFunSettings
-                    {
-                        AllowGiphy = true,
-                        GiphyContentRating = GiphyRatingType.Strict,
-                    },
-                };
-
-                Team team = await graphClient.Teams[teamId].PatchAsync(requestBody);
-                result.Data = team;
-                result.Result = ResponseFlag.Success;
-            }
-            catch (Exception ex)
-            {
-                result.Message = ex.Message;
-                result.Result = ResponseFlag.Error;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Updates conversation team member details in the team
-        /// </summary>
-        /// <param name="teamId"></param>
-        /// <param name="conversationTeamMemberId"></param>
-        /// <returns></returns>
-        [HttpPatch]
-        [Route("UpdateTeamMember/{teamId}/{conversationTeamMemberId}")]
-        public async Task<ResponseResult> UpdateTeamMember(string teamId,string conversationTeamMemberId)
-        {
-            try
-            {
-                
-                var requestBody = new AadUserConversationMember
-                {
-                    OdataType = "#microsoft.graph.aadUserConversationMember",
-                    Roles = new List<string>
-                    {
-                        "owner",
-                    },
-                };
-
-                ConversationMember team = await graphClient.Teams[teamId].Members[conversationTeamMemberId].PatchAsync(requestBody);
-                result.Data = team;
-                result.Result = ResponseFlag.Success;
-            }
-            catch (Exception ex)
-            {
-                result.Message = ex.Message;
-                result.Result = ResponseFlag.Error;
-            }
-
-            return result;
-        }
-
     }
 }
