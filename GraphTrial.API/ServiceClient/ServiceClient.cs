@@ -5,9 +5,9 @@ namespace GraphTrial.API.ServiceClient
 {
     public static class GraphClient
     {
-        private static string clientId = "<your client id here>";
-        private static string clientSecret = "<your client secret here>";
-        private static string tenantId = "<your tenant ID here>";
+        private static string ClientID = "<your client id here>";
+        private static string ClientSecret = "<your client secret here>";
+        private static string TenantID = "<your tenant ID here>";
 
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace GraphTrial.API.ServiceClient
                     AuthorityHost = AzureAuthorityHosts.AzurePublicCloud
                 };
 
-                var clientSecretCredentials = new ClientSecretCredential(tenantId, clientId, clientSecret, tokenCredentialsOptions);
+                var clientSecretCredentials = new ClientSecretCredential(TenantID, ClientID, ClientSecret, tokenCredentialsOptions);
                 var scopes = new[] { "https://graph.microsoft.com/.default" };
 
                 return new GraphServiceClient(clientSecretCredentials, scopes);
