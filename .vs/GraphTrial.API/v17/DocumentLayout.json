@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GraphTrial.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\serviceclient\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\serviceclient\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\channelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\channelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\common\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\common\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChannelController.cs",
+              "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ChannelController.cs",
+              "RelativeDocumentMoniker": "GraphTrial.API\\Controllers\\ChannelController.cs",
+              "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ChannelController.cs",
+              "RelativeToolTip": "GraphTrial.API\\Controllers\\ChannelController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwFYAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T05:07:32.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Common.cs",
+              "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\Common\\Common.cs",
+              "RelativeDocumentMoniker": "GraphTrial.API\\Common\\Common.cs",
+              "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Common\\Common.cs",
+              "RelativeToolTip": "GraphTrial.API\\Common\\Common.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T04:39:42.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TeamsController.cs",
+              "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\TeamsController.cs",
+              "RelativeDocumentMoniker": "GraphTrial.API\\Controllers\\TeamsController.cs",
+              "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\TeamsController.cs",
+              "RelativeToolTip": "GraphTrial.API\\Controllers\\TeamsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T04:34:45.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServiceClient.cs",
+              "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\ServiceClient\\ServiceClient.cs",
+              "RelativeDocumentMoniker": "GraphTrial.API\\ServiceClient\\ServiceClient.cs",
+              "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\ServiceClient\\ServiceClient.cs",
+              "RelativeToolTip": "GraphTrial.API\\ServiceClient\\ServiceClient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T04:34:40.177Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
