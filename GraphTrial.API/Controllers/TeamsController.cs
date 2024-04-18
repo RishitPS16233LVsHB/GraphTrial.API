@@ -6,10 +6,12 @@ using Microsoft.Graph;
 using Azure.Identity;
 using GraphTrial.API.ServiceClient;
 using GraphTrial.API.Common;
+using System.Diagnostics;
+using GraphTrial.API.Entities;
 
 namespace GraphTrial.API.Controllers
 {
-    [Route("api/[controller]/{teamId}")]
+    [Route("api/[controller]/")]
     [ApiController]
     public class TeamsController : ControllerBase
     {
@@ -20,6 +22,25 @@ namespace GraphTrial.API.Controllers
             graphClient = GraphClient.CreateGraphServiceClient();
         }
 
+        [HttpGet]
+        [Route("GetTeam/{userPrincipal}")]
+        public async Task<ResponseResult> GetTeamsUnderUser(string userPrincipal)
+        {
+            try {
+                var res = await graphClient.Users[userPrincipal].JoinedTeams.GetAsync();
+                result.Data = res;
+                result.Result = ResponseFlag.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                result.Result = ResponseFlag.Error;
+            }
+
+            return result;
+        }
+
+
         /// <summary>
         /// Creates a team with a name and description 
         /// </summary>
@@ -27,14 +48,29 @@ namespace GraphTrial.API.Controllers
         // code written directly from microsoft's website for graph api samples
         [HttpPost]
         [Route("CreateTeam")]
-        public async Task<ResponseResult> CreateTeam()
+        public async Task<ResponseResult> CreateTeam([FromBody] CreateTeam createTeam)
         {
             try
             {                
                 var requestBody = new Team
                 {
-                    DisplayName = "My Sample Team",
-                    Description = "My Sample Team’s Description",
+                    DisplayName = createTeam.TeamName,
+                    Description = createTeam.TeamDescription,
+                    Visibility = createTeam.IsPrivate ? TeamVisibilityType.Private : TeamVisibilityType.Public,
+                    Members = new List<ConversationMember>()
+                    {
+                        new AadUserConversationMember
+                        {
+                            Roles = new List<string>()
+                            {
+                                "owner"
+                            },
+                            AdditionalData = new Dictionary<string, object>()
+                            {
+                                {"user@odata.bind", $"https://graph.microsoft.com/v1.0/users('{createTeam.OwnerUserPrincipal}')"}
+                            }
+                        }
+                    },
                     AdditionalData = new Dictionary<string, object>
                     {
                         {
@@ -42,7 +78,7 @@ namespace GraphTrial.API.Controllers
                         },
                     },
                 };
-                Team team = await graphClient.Teams.PostAsync(requestBody);
+                var team = await graphClient.Teams.PostAsync(requestBody);
                 result.Data = team;
                 result.Result = ResponseFlag.Success;
             }
@@ -61,8 +97,8 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamMemberId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("AddTeamMember/{teamMemberId}")]
-        public async Task<ResponseResult> AddTeamMember(string teamId, string teamMemberId)
+        [Route("{teamId}/AddTeamMember/{userPrincipal}")]
+        public async Task<ResponseResult> AddTeamMember(string teamId, string userPrincipal)
         {
             try
             {
@@ -76,7 +112,7 @@ namespace GraphTrial.API.Controllers
                     AdditionalData = new Dictionary<string, object>
                     {
                         {
-                            "user@odata.bind" , $"https://graph.microsoft.com/v1.0/users('{teamMemberId}')"
+                            "user@odata.bind" , $"https://graph.microsoft.com/v1.0/users('{userPrincipal}')"
                         },
                     },
                 };
@@ -100,7 +136,7 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetTeam")]
+        [Route("{teamId}/GetTeam")]
         public async Task<ResponseResult> GetTeam(string teamId)
         {
             try
@@ -124,7 +160,7 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetTeamMembers")]
+        [Route("{teamId}/GetTeamMembers")]
         public async Task<ResponseResult> GetTeamMembers(string teamId)
         {
             try
@@ -149,7 +185,7 @@ namespace GraphTrial.API.Controllers
         /// <param name="teamId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("DeleteTeam")]
+        [Route("{teamId}/DeleteTeam")]
         public async Task<ResponseResult> DeleteTeam(string teamId)
         {
             try
@@ -174,12 +210,12 @@ namespace GraphTrial.API.Controllers
         /// <param name="conversationTeamMemberId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("RemoveTeamMember/{conversationTeamMemberId}")]
-        public async Task<ResponseResult> RemoveTeamMember(string teamId, string conversationTeamMemberId)
+        [Route("{teamId}/RemoveTeamMember/{conversationUserPrincipal}")]
+        public async Task<ResponseResult> RemoveTeamMember(string teamId, string conversationUserPrincipal)
         {
             try
             {
-                await graphClient.Teams[teamId].Members[conversationTeamMemberId].DeleteAsync(); // returns void
+                await graphClient.Teams[teamId].Members[conversationUserPrincipal].DeleteAsync(); // returns void
                 result.Data = "Removed team member successfully";
                 result.Result = ResponseFlag.Success;
             }

@@ -103,8 +103,8 @@ namespace GraphTrial.API.Controllers
         /// <param name="conversationMemberId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("AddChannelMember/{channelId}/{conversationMemberId}")]
-        public async Task<ResponseResult> AddChannelMember(string teamId, string channelId, string conversationMemberId)
+        [Route("AddChannelMember/{channelId}/{userPrincipal}")]
+        public async Task<ResponseResult> AddChannelMember(string teamId, string channelId, string userPrincipal)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace GraphTrial.API.Controllers
                     AdditionalData = new Dictionary<string, object>
                     {
                         {
-                            "user@odata.bind" , $"https://graph.microsoft.com/v1.0/users('{conversationMemberId}')"
+                            "user@odata.bind" , $"https://graph.microsoft.com/v1.0/users('{userPrincipal}')"
                         },
                     },
                 };
@@ -184,19 +184,48 @@ namespace GraphTrial.API.Controllers
         /// <param name="message"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("SendMessage/{channelId}")]
-        public async Task<ResponseResult> SendMessage(string teamId,string channelId, [FromBody] string message) {
+        [Route("SendMessage/{channelId}/From/{userId}/{userName}")]
+        public async Task<ResponseResult> SendMessage(string teamId,string channelId,string userId,string userName, [FromBody] string message) {
             try
             {
+                //var requestBody = new ChatMessage
+                //{
+                //    Body = new ItemBody
+                //    {
+                //        Content = message,
+                //    },
+                //};
+
+                //var res = await graphClient.Teams[teamId].Channels[channelId].Messages.PostAsync(requestBody);
+
                 var requestBody = new ChatMessage
                 {
+                    CreatedDateTime = DateTimeOffset.Parse("2019-02-04T19:58:15.511Z"),
+                    From = new ChatMessageFromIdentitySet
+                    {
+                        User = new Identity
+                        {
+                            Id = userId,
+                            DisplayName = userName,
+                            AdditionalData = new Dictionary<string, object>
+                            {
+                                {
+                                    "userIdentityType" , "aadUser"
+                                },
+                            },
+                        },
+                    },
                     Body = new ItemBody
                     {
+                        ContentType = BodyType.Html,
                         Content = message,
                     },
                 };
 
+                // To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=csharp
                 var res = await graphClient.Teams[teamId].Channels[channelId].Messages.PostAsync(requestBody);
+
+
                 result.Data = res;
                 result.Result = ResponseFlag.Success;
             }
@@ -220,7 +249,7 @@ namespace GraphTrial.API.Controllers
         {
             try
             {
-                var res = await graphClient.Teams[teamId].Channels[channelId].Messages.GetAsync(;
+                var res = await graphClient.Teams[teamId].Channels[channelId].Messages.GetAsync();
                 result.Data = res;
                 result.Result = ResponseFlag.Success;
             }

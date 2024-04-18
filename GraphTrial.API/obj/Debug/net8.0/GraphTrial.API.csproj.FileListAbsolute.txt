@@ -56,3 +56,4 @@ D:\GraphTrial.API\GraphTrial.API\obj\Debug\net8.0\refint\GraphTrial.API.dll
 D:\GraphTrial.API\GraphTrial.API\obj\Debug\net8.0\GraphTrial.API.pdb
 D:\GraphTrial.API\GraphTrial.API\obj\Debug\net8.0\GraphTrial.API.genruntimeconfig.cache
 D:\GraphTrial.API\GraphTrial.API\obj\Debug\net8.0\ref\GraphTrial.API.dll
+D:\GraphTrial.API\GraphTrial.API\obj\Debug\net8.0\GraphTrial.API.sourcelink.json

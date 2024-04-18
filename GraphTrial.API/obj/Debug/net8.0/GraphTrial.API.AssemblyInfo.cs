@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GraphTrial.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d83f19d00f410071816415dc39fff03e07b21a79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cce45856264b470c463e076a5f5be59604f44e14")]
 [assembly: System.Reflection.AssemblyProductAttribute("GraphTrial.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GraphTrial.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
