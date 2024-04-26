@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\GraphTrial.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\serviceclient\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\serviceclient\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\channelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\channelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\serviceclient\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\serviceclient\\serviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\entities\\createteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +25,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\common\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\common\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|d:\\graphtrial.api\\graphtrial.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D11D3F14-9E9E-4EF6-81BB-48B2F625A498}|GraphTrial.API\\GraphTrial.API.csproj|solutionrelative:graphtrial.api\\controllers\\teamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +38,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "GraphTrial.API\\Controllers\\ProfileController.cs",
+              "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "GraphTrial.API\\Controllers\\ProfileController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAwDgAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T09:32:29.112Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -51,26 +68,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ServiceClient.cs",
               "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\ServiceClient\\ServiceClient.cs",
               "RelativeDocumentMoniker": "GraphTrial.API\\ServiceClient\\ServiceClient.cs",
               "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\ServiceClient\\ServiceClient.cs",
               "RelativeToolTip": "GraphTrial.API\\ServiceClient\\ServiceClient.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAwA8AAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T09:45:07.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ChatController.cs",
               "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ChatController.cs",
               "RelativeDocumentMoniker": "GraphTrial.API\\Controllers\\ChatController.cs",
               "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ChatController.cs",
               "RelativeToolTip": "GraphTrial.API\\Controllers\\ChatController.cs",
-              "ViewState": "AQIAALwAAAAAAAAAAAAAAOYAAAAAAAAA",
+              "ViewState": "AQIAAOAAAAAAAAAAAADwv/EAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T06:37:00.868Z",
               "EditorCaption": ""
@@ -83,7 +100,7 @@
               "RelativeDocumentMoniker": "GraphTrial.API\\Controllers\\ChannelController.cs",
               "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\ChannelController.cs",
               "RelativeToolTip": "GraphTrial.API\\Controllers\\ChannelController.cs",
-              "ViewState": "AQIAANMAAAAAAAAAAAAQwOEAAAAXAAAA",
+              "ViewState": "AQIAAL0AAAAAAAAAAAAAAMAAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T05:07:32.11Z",
               "EditorCaption": ""
@@ -98,17 +115,18 @@
               "RelativeToolTip": "GraphTrial.API\\Common\\Common.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T04:39:42.377Z"
+              "WhenOpened": "2024-04-12T04:39:42.377Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "TeamsController.cs",
               "DocumentMoniker": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\TeamsController.cs",
               "RelativeDocumentMoniker": "GraphTrial.API\\Controllers\\TeamsController.cs",
               "ToolTip": "D:\\GraphTrial.API\\GraphTrial.API\\Controllers\\TeamsController.cs",
               "RelativeToolTip": "GraphTrial.API\\Controllers\\TeamsController.cs",
-              "ViewState": "AQIAAM0AAAAAAAAAAAAowOIAAAAAAAAA",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAuwE8AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T04:34:45.013Z",
               "EditorCaption": ""

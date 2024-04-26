@@ -5,10 +5,12 @@ namespace GraphTrial.API.ServiceClient
 {
     public static class GraphClient
     {
-        private static string ClientID = "<your client id here>";
-        private static string ClientSecret = "<your client secret here>";
-        private static string TenantID = "<your tenant ID here>";
+        private static string ClientID = "<client id>";
+        private static string ClientSecret = "<client secret>";
+        private static string TenantID = "<tenant id>";
 
+        // send message access token for sending messages in channels and chats
+        public static string AccessToken = @"<access token>";
 
         /// <summary>
         /// creates a client which communicates with graph api to perform microsoft office work directly through the web app

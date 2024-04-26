@@ -7,6 +7,9 @@ using Microsoft.Graph.External;
 using Microsoft.Graph.Models;
 using Microsoft.Graph;
 using Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.SendTestMessage;
+using Azure.Core;
+using Azure.Messaging;
+using System.Text;
 
 
 namespace GraphTrial.API.Controllers
@@ -184,47 +187,37 @@ namespace GraphTrial.API.Controllers
         /// <param name="message"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("SendMessage/{channelId}/From/{userId}/{userName}")]
-        public async Task<ResponseResult> SendMessage(string teamId,string channelId,string userId,string userName, [FromBody] string message) {
+        [Route("SendMessage/{channelId}/")]
+        public async Task<ResponseResult> SendMessage(string teamId,string channelId,[FromBody] string message) {
             try
             {
-                //var requestBody = new ChatMessage
-                //{
-                //    Body = new ItemBody
-                //    {
-                //        Content = message,
-                //    },
-                //};
-
-                //var res = await graphClient.Teams[teamId].Channels[channelId].Messages.PostAsync(requestBody);
-
-                var requestBody = new ChatMessage
+                var res = "";
+                using (var client = new HttpClient())
                 {
-                    CreatedDateTime = DateTimeOffset.Parse("2019-02-04T19:58:15.511Z"),
-                    From = new ChatMessageFromIdentitySet
+                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {ServiceClient.GraphClient.AccessToken}");
+                    client.BaseAddress = new Uri("https://graph.microsoft.com/v1.0/");
+
+                    var messageObj = new
                     {
-                        User = new Identity
+                        body = new
                         {
-                            Id = userId,
-                            DisplayName = userName,
-                            AdditionalData = new Dictionary<string, object>
-                            {
-                                {
-                                    "userIdentityType" , "aadUser"
-                                },
-                            },
-                        },
-                    },
-                    Body = new ItemBody
+                            content = message
+                        }
+                    };
+
+                    var jsonMessage = Newtonsoft.Json.JsonConvert.SerializeObject(messageObj);
+                    var content = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync($"teams/{teamId}/channels/{channelId}/messages", content);
+                    if (response.IsSuccessStatusCode)
                     {
-                        ContentType = BodyType.Html,
-                        Content = message,
-                    },
-                };
-
-                // To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=csharp
-                var res = await graphClient.Teams[teamId].Channels[channelId].Messages.PostAsync(requestBody);
-
+                        res = ("Message sent successfully!");
+                    }
+                    else
+                    {
+                        res = ($"Failed to send message. Status code: {response.StatusCode}");
+                    }
+                }
 
                 result.Data = res;
                 result.Result = ResponseFlag.Success;

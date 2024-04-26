@@ -2,3 +2,4 @@
 GraphTrial.API/ServiceClient/ServiceClient.cs
 /GraphTrial.API/ServiceClient
 *.vsidx
+/GraphTrial.API/ServiceClient

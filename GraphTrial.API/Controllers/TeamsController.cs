@@ -51,12 +51,13 @@ namespace GraphTrial.API.Controllers
         public async Task<ResponseResult> CreateTeam([FromBody] CreateTeam createTeam)
         {
             try
-            {                
+            {       
                 var requestBody = new Team
                 {
                     DisplayName = createTeam.TeamName,
                     Description = createTeam.TeamDescription,
-                    Visibility = createTeam.IsPrivate ? TeamVisibilityType.Private : TeamVisibilityType.Public,
+                    Visibility = createTeam.IsPrivate ? TeamVisibilityType.Private : TeamVisibilityType.Public,   
+                    CreatedDateTime = DateTime.Now,
                     Members = new List<ConversationMember>()
                     {
                         new AadUserConversationMember
@@ -76,6 +77,9 @@ namespace GraphTrial.API.Controllers
                         {
                             "template@odata.bind" , "https://graph.microsoft.com/v1.0/teamsTemplates('standard')"
                         },
+                        //{
+                        //    "@microsoft.graph.teamCreationMode" , "migration"
+                        //},
                     },
                 };
                 var team = await graphClient.Teams.PostAsync(requestBody);
@@ -153,6 +157,30 @@ namespace GraphTrial.API.Controllers
 
             return result;
         }
+
+        /// <summary>
+        /// Gets all teams in org
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/GetAllTeam")]
+        public async Task<ResponseResult> GetAllTeam()
+        {
+            try
+            {
+                var team = await graphClient.Teams.GetAsync();
+                result.Data = team;
+                result.Result = ResponseFlag.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                result.Result = ResponseFlag.Error;
+            }
+
+            return result;
+        }
+
 
         /// <summary>
         /// Gets list of conversation team members in the team
