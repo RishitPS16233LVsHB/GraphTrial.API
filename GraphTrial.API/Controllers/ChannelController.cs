@@ -194,7 +194,7 @@ namespace GraphTrial.API.Controllers
                 var res = "";
                 using (var client = new HttpClient())
                 {
-                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {ServiceClient.GraphClient.AccessToken}");
+                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {GraphClient.AccessToken}");
                     client.BaseAddress = new Uri("https://graph.microsoft.com/v1.0/");
 
                     var messageObj = new
